@@ -16,5 +16,7 @@ RSpec.describe 'Target' do
     login_page.choose_category
     login_page.site
     login_page.choose_product
+    login_page.set_title
+    login_page.set_text
   end
 end

@@ -16,7 +16,7 @@ module Robot
       site.set 'https://sam.com'
       choose_product
       set_title.set 'Sam'
-      set_text.set 'Sam sms'
+      set_text.set "Sma sms"
     end
 
     def created
@@ -24,23 +24,24 @@ module Robot
     end
 
     def click_new_campaign
-      @browser.a(class: 'campaign-toolbar__create-button').wait_until_present.click
+      @browser.a(text: 'Create campaign').wait_until_present.click
     end
 
     def choose_category
-      puts "Start"
-      @browser.div(class: 'accordion-select__item _external _active').click
+      puts "Start choose_category"
+      @browser.span(text: 'Site').wait_until_present.click
       puts "End"
     end
 
     def site
-      puts "start1"
+      puts "start site"
       @browser.text_field(class: 'input__inp')
     end
 
     def choose_product
-      puts "start2"
-      @browser.span(class: 'pac-item-icons__name').wait_until_present.click
+      puts "start choose product"
+      @browser.span(text: 'Multi-format placement').click
+      p "===End"
     end
 
     def set_title
