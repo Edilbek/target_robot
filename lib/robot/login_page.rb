@@ -54,8 +54,12 @@ module Robot
 
     def set_image1
       puts "set 1 image"
-      # @browser.span(text: 'Upload 256 x 256').click.set("../images/image1.png")
-      # @browser.file_field(:text => 'Upload 256 x 256')
+      # @browser.span(text: 'Upload 256 x 256').wait_until_present.click
+      # @browser.file_field.set 'image1.png'
+      # @browser.button(:value,"Save image").wait_until_present.click
+      @browser.span(text: "Upload 256 x 256").click
+      @browser.file_field(name: "image1.png").set("image1.png")
+      @browser.input(:value => 'Save image').wait_until_present.click
     end
 
     def set_image2
