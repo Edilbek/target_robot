@@ -19,10 +19,6 @@ module Robot
       set_text.set "Sma sms"
     end
 
-    def created
-
-    end
-
     def click_new_campaign
       @browser.a(text: 'Create campaign').wait_until_present.click
     end
@@ -30,7 +26,7 @@ module Robot
     def choose_category
       puts "Start choose_category"
       @browser.span(text: 'Site').wait_until_present.click
-      puts "End"
+      puts "= end_start_choose_category ="
     end
 
     def site
@@ -40,12 +36,14 @@ module Robot
 
     def choose_product
       puts "start choose product"
-      @browser.span(text: 'Multi-format placement').click
-      p "===End"
+      # @browser.span(text: 'Multi-format placement').wait_until_present.click
+      @browser.div(:class => 'pac-item-icons__name js-pack-title', :data_value => '552').wait_until_present.click
+      p "= end_choose_product ="
     end
 
     def set_title
-      @browser.text_field(class: 'js-form-element')
+      puts "set title"
+      @browser.text_field(class: '')
     end
 
     def set_text
