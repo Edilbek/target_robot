@@ -13,10 +13,11 @@ module Robot
       MainPage.new(@browser)
       click_new_campaign
       choose_category
-      site.set 'https://sam.com'
+      site
       choose_product
-      set_title.set 'Sam'
-      set_text.set "Sma sms"
+      set_title
+      set_text
+      set_image1
     end
 
     def click_new_campaign
@@ -31,7 +32,7 @@ module Robot
 
     def site
       puts "start site"
-      @browser.text_field(class: 'input__inp')
+      @browser.text_field(class: 'input__inp').set 'https://sam.com'
     end
 
     def choose_product
@@ -42,13 +43,29 @@ module Robot
     end
 
     def set_title
-      puts "set title"
-      @browser.text_field(class: '')
+      puts "start set title"
+      @browser.text_field(class: 'input__inp', :data_gtm_id => 'banner_form_title').set 'Sam'
     end
 
     def set_text
-      @browser.text_field(class: 'textarea__elem')
+      puts "start set text"
+      @browser.textarea(class: 'textarea__elem', :data_gtm_id => 'banner_form_text').set "Sma sms"
     end
+
+    def set_image1
+      puts "set 1 image"
+      # @browser.span(text: 'Upload 256 x 256').click.set("../images/image1.png")
+      # @browser.file_field(:text => 'Upload 256 x 256')
+    end
+
+    def set_image2
+
+    end
+
+    def set_image3
+
+    end
+
     private
 
     def click_sign_in

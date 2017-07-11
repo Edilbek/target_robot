@@ -18,5 +18,6 @@ RSpec.describe 'Target' do
     login_page.choose_product
     login_page.set_title
     login_page.set_text
+    login_page.set_image1
   end
 end
