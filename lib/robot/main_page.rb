@@ -3,7 +3,7 @@ module Robot
     def logged_in?
       logged_in_element.exists?
     end
-
+    
     private
 
     def logged_in_element
