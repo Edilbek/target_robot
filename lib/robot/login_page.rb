@@ -18,6 +18,9 @@ module Robot
       set_title
       set_text
       set_image1
+      set_image2
+      set_image3
+      click_create_campaign
     end
 
     def click_new_campaign
@@ -54,21 +57,31 @@ module Robot
 
     def set_image1
       puts "set 1 image"
-      # @browser.span(text: 'Upload 256 x 256').wait_until_present.click
-      # @browser.file_field.set 'image1.png'
-      # @browser.button(:value,"Save image").wait_until_present.click
-      @browser.span(text: "Upload 256 x 256").click
-      @browser.file_field(name: "image1.png").set("image1.png")
+      @browser.file_field(:data_gtm_id => 'load_image_btn_256_256').set("#{__dir__}/image1.png")
       @browser.input(:value => 'Save image').wait_until_present.click
     end
 
     def set_image2
-
+      puts "set 2 image"
+      @browser.file_field(:data_gtm_id => 'load_image_btn_1080_607').set("#{__dir__}/lion.jpg")
+      @browser.input(:value => 'Save image').wait_until_present.click
     end
 
     def set_image3
-
+      puts "set 3 image"
+      @browser.file_field(:data_gtm_id => 'load_image_btn_480_480').set("#{__dir__}/lion.jpg")
+      @browser.input(:value => 'Save image').wait_until_present.click
+      puts 'end set 3 image'
     end
+
+    def click_create_campaign
+      puts "click create campaign"
+      # @browser.span(text: 'Create campaign', :data_loc_en => 'Create campaign').wait_until_present.click
+      # @browser.span(text: 'Create campaign').wait_until_present.click
+      @browser.button(:data_gtm_id => 'create_campaign_btn').wait_until_present.click
+      puts "end click create campaign"
+    end
+
 
     private
 
