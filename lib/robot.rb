@@ -1,11 +1,11 @@
 require 'watir'
 
 class Robot
-  URL = "https://target-sandbox.my.com/"
+  URL = "http://target.my.com/"
 
   def initialize(options = {})
     @browser = Watir::Browser.new
-    
+
     @login = options[:login]
     @password = options[:password]
     @title = options[:title]
